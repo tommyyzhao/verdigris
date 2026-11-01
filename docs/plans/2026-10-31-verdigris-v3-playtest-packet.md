@@ -1,12 +1,12 @@
 # Verdigris v3 — owner playtest packet (lean round R01)
 
-Method: `/tmp/verdigris-v3/research/playtest/` contains `protocol.md` (§2a lean format, §2b remote setup, §6 pass gates, §7 kill table), `checklist.md` (the run card) and `instrumentation.md`. This packet fills in the **freeze sheet**: everything that must be fixed before tester 1. Sign and date it, then hash it (`shasum -a 256`) and keep a read-only copy.
+Method: `docs/playtest/` contains `protocol.md` (§2a lean format, §2b remote setup, §6 pass gates, §7 kill table), `checklist.md` (the run card) and `instrumentation.md`. This packet fills in the **freeze sheet**: everything that must be fixed before tester 1. Sign and date it, then hash it (`shasum -a 256`) and keep a read-only copy.
 
 ## Freeze sheet
 
 ```
 round_id: R01   protocol_version: 1   format: lean (2 rooms, ≤40 min)   frozen_at: ____   owner: ____
-build_commit: <feat/verdigris-v3 HEAD at freeze>   build_hash: shown in study log header
+build_commit: <verdigris main HEAD at freeze>   build_hash: shown in study log header
 level_data_hash: study log room_start.level_hash   engine_settings: 192×120, 60 Hz, seed 71429
 room_order (scored): still-pond, bring-it-back
   - Testers first play first-rain and breath, unscored, as onboarding (≤4 min, inside the 20-min silent block).

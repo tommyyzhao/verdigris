@@ -67,7 +67,7 @@ Minimal forms and measured bases: SYNTHESIS §4 Concept A.
    - Room files under `game/rooms/`.
 2. **Rooms A** (worktree, after Verbs): Hidden Draft, Still Pond (Head Throw killed).
 3. **Rooms B** (worktree, after Verbs): Bring It Back (Cloud Shelf killed).
-4. **Instrumentation** (worktree, parallel with Rooms): opt-in research-mode log + JSON export per `/tmp/verdigris-v3/research/playtest/instrumentation.md`.
+4. **Instrumentation** (worktree, parallel with Rooms): opt-in research-mode log + JSON export per `docs/playtest/instrumentation.md`.
 5. **Solver acceptance** (after the rooms): criteria 1–6 for all 8 rooms. Run on the M1 FIFO lock and the M2 static build.
 6. **Integration** (lead):
    - map with 8 rooms; finale after room 8;
