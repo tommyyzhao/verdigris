@@ -1,0 +1,7 @@
+// Cloudflare Workers static assets for the prerendered SvelteKit build (bun run build).
+// DNS for tz.mt is owned by the tz.mt deploy lead; add a custom-domain route only once the zone is active.
+{
+	"name": "verdigris",
+	"compatibility_date": "2026-10-01",
+	"assets": { "directory": "./build" }
+}

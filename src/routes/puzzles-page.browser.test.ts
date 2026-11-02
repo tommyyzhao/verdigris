@@ -995,6 +995,7 @@ describe('Verdigris contextual gestures', () => {
 		await page.getByRole('button', { name: 'Wake the first wing →' }).click();
 		expect(document.querySelector('[data-screen="interlude"]')).not.toBeNull();
 		expect(document.body.textContent).toContain('The first wing remembers.');
+		expect(document.querySelector('[data-screen="interlude"] a.ending-link')?.getAttribute('href')).toBe('https://delos.tz.mt/quotes');
 		await wait(7000);
 		expect(document.querySelector('[data-screen="interlude"]')).not.toBeNull();
 		await shot('interlude');

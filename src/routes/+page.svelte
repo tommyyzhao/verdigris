@@ -4,6 +4,7 @@
 	import Map from './game/Map.svelte';
 	import Board from './game/Board.svelte';
 	import Greenhouse from './game/Greenhouse.svelte';
+	const ENDING_URL = 'https://delos.tz.mt/quotes';
 	import { createAirLayer } from './game/air.js';
 	import { LEVELS, SANDBOX } from './game/levels.js';
 	import { createAudio } from './game/audio.js';
@@ -209,7 +210,7 @@
 	{:else if screen === 'map'}
 		<Map {levels} {progress} available={unlocked(progress) + 1} onselect={select} onback={() => screen = 'title'} {revived}/>
 	{:else if screen === 'interlude'}
-		<section class="interlude" aria-label="The first wing wakes"><Greenhouse alive={3} settled/><div class="interlude-words"><span>{levels.length} small rooms · {totalDrops} dewdrops</span><h1>The first wing remembers.</h1><p>Beyond the glass, the rest of the garden is still dreaming.</p><button class="primary" bind:this={interludeButton} onclick={map}>Explore the greenhouse →</button><p class="interlude-end">You’ve revived all {levels.length} available rooms. Replay for more dewdrops, or wander freely.</p></div></section>
+		<section class="interlude" aria-label="The first wing wakes"><Greenhouse alive={3} settled/><div class="interlude-words"><span>{levels.length} small rooms · {totalDrops} dewdrops</span><h1>The first wing remembers.</h1><p>Beyond the glass, the rest of the garden is still dreaming.</p><button class="primary" bind:this={interludeButton} onclick={map}>Explore the greenhouse →</button><p class="interlude-end">You’ve revived all {levels.length} available rooms. Replay for more dewdrops, or wander freely.</p><a class="ending-link" href={ENDING_URL}>delos.tz.mt/quotes</a></div></section>
 	{:else if activeLevel}
 		<div class="room-screen" class:celebrating={screen === 'payoff'} inert={blocked}>
 			<header class="room-header" class:cleared={screen === 'payoff'}>
@@ -237,7 +238,7 @@
 			{/if}
 		</div>
 	{/if}
-	{#if progress.finale && (screen === 'title' || screen === 'map')}<nav class="completed-garden" aria-label="The awakened garden"><button onclick={wander}>Wander the garden</button><button onclick={replayDawn}>See the dawn again</button></nav>{/if}
+	{#if progress.finale && (screen === 'title' || screen === 'map')}<nav class="completed-garden" aria-label="The awakened garden"><button onclick={wander}>Wander the garden</button><button onclick={replayDawn}>See the dawn again</button><a class="ending-link" href={ENDING_URL}>delos.tz.mt/quotes</a></nav>{/if}
 	{#if inRoom && blocked && !studyPaused}
 		<dialog bind:this={dialog} oncancel={e => { e.preventDefault(); resume(); }} aria-labelledby="pause-title">
 			<div class="modal-ornament" aria-hidden="true">{status === 'context-lost' || status === 'unavailable' ? '☾' : '❧'}</div>
@@ -266,7 +267,7 @@
 	.room-body { flex: 1; min-height: 0; display: grid; place-items: center; padding: 0 55px 70px; }.board-wrap { width: min(100%,calc((100dvh - 208px) * 1.6)); }
 	.room-footer { position: absolute; bottom: 20px; left: 39px; right: 39px; display: flex; align-items: center; justify-content: space-between; pointer-events: none; }.room-footer button { pointer-events: auto; font: 23px Georgia,serif; color: #b3c7a7; border: 0; background: transparent; cursor: pointer; min-height: 44px; }.room-footer button span { font: 11px ui-sans-serif,system-ui; vertical-align: middle; margin-left: 6px; }.room-footer button.armed { font: 13px ui-sans-serif,system-ui; color: #eed6a7; }.quiet-note { color: #a7bca0; font: italic 13px Georgia,serif; }
 	.hints { position: absolute; z-index: 8; right: 35px; top: 90px; max-width: 310px; border: 1px solid #8b9e6d80; background: #183b39fa; box-shadow: 0 10px 40px #041b2380; padding: 20px 24px; border-radius: 6px; }.hints p { color: #e0dfbe; font: 15px/1.7 Georgia,serif; }.hints p span { color: #bdaf7c; margin-right: 10px; }.hints>button:first-child { position: absolute; top: 0; right: 0; background: transparent; border: 0; color: #cfdbb5; font-size: 24px; width: 44px; height: 44px; cursor: pointer; }.next-hint { background: transparent; color: #cfdbb5; border: 0; padding: 10px 0; cursor: pointer; font-size: 12px; text-decoration: underline; }
-	.stuck-card { position: absolute; z-index: 7; left: 50%; bottom: 85px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 60px); text-align: center; padding: 14px 22px; border: 1px solid #8b9e6d80; border-radius: 6px; background: #183b39f5; }.stuck-card p { margin: 0 0 9px; font: 18px Georgia,serif; }.stuck-card button,.completed-garden button { color: #eee7c9; border: 1px solid #a4ac7699; background: #163834ed; border-radius: 4px; padding: 12px 16px; font-size: 12px; cursor: pointer; }.stuck-card span { display: block; margin-top: 8px; color: #b9c9ac; font-size: 11px; }.completed-garden { position: absolute; z-index: 9; right: 28px; bottom: 24px; display: flex; flex-wrap: wrap; gap: 10px; max-width: calc(100% - 56px); }
+	.stuck-card { position: absolute; z-index: 7; left: 50%; bottom: 85px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 60px); text-align: center; padding: 14px 22px; border: 1px solid #8b9e6d80; border-radius: 6px; background: #183b39f5; }.stuck-card p { margin: 0 0 9px; font: 18px Georgia,serif; }.stuck-card button,.completed-garden button { color: #eee7c9; border: 1px solid #a4ac7699; background: #163834ed; border-radius: 4px; padding: 12px 16px; font-size: 12px; cursor: pointer; }.stuck-card span { display: block; margin-top: 8px; color: #b9c9ac; font-size: 11px; }.ending-link { display: inline-block; margin-top: 14px; color: #eee7c9; font: 15px Georgia,serif; letter-spacing: .03em; text-underline-offset: 4px; }.completed-garden .ending-link { margin: 0; align-self: center; font-size: 13px; }.completed-garden { position: absolute; z-index: 9; right: 28px; bottom: 24px; display: flex; flex-wrap: wrap; gap: 10px; max-width: calc(100% - 56px); }
 	.action-feedback { position: absolute; bottom: 70px; left: 50%; transform: translateX(-50%); padding: 10px 16px; max-width: calc(100% - 50px); width: max-content; background: #163c36f5; border: 1px solid #8ea77988; border-radius: 5px; font-size: 12px; text-align: center; z-index: 7; }
 	.clear-card { position: absolute; z-index: 8; bottom: 24px; left: 50%; transform: translateX(-50%); width: min(590px,calc(100% - 32px)); box-sizing: border-box; padding: 20px 24px; border: 1px solid #b8c397; border-radius: 12px; background: #123833f5; box-shadow: 0 16px 70px #001b24aa; text-align: center; animation: appear .3s both; max-height: calc(100dvh - 90px); overflow: auto; }
 	.clear-heading>span { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #bdcdad; }.clear-heading h2 { margin: 4px 0; font: 400 27px Georgia,serif; color: #f2e9ca; }.clear-heading p { margin: 8px 0 16px; color: #d5ddb8; font-size: 12px; }.clear-heading p span { padding: 0 8px; }
