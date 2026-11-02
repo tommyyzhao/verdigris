@@ -985,7 +985,7 @@ describe('Verdigris contextual gestures', () => {
 				finale: false,
 			},
 		});
-		expect(document.querySelector('a[href="https://delos.tz.mt/quotes"]')).toBeNull();
+		expect(document.querySelector('a[href="https://delos.sloprefinery.ai/"]')).toBeNull();
 		fixtureStatus = 'ready';
 		await wait(120);
 		await shot('ready');
@@ -1000,7 +1000,7 @@ describe('Verdigris contextual gestures', () => {
 		expect(document.body.textContent).toContain('The first wing remembers.');
 		const nextGame = page.getByRole('link', { name: 'Play the next game', exact: true });
 		const link = nextGame.element() as HTMLAnchorElement;
-		expect(link.href).toBe('https://delos.tz.mt/quotes');
+		expect(link.href).toBe('https://delos.sloprefinery.ai/');
 		expect(link.classList.contains('primary')).toBe(true);
 		await vi.waitFor(() => expect(document.activeElement).toBe(link));
 		const explore = page.getByRole('button', { name: 'Stay and explore the greenhouse', exact: true });
@@ -1025,7 +1025,7 @@ describe('Verdigris contextual gestures', () => {
 		await explore.click();
 		expect(document.querySelector('[data-screen="map"]')).not.toBeNull();
 		expect(document.body.textContent).toContain('Wander the garden');
-		expect((page.getByRole('link', { name: 'Play the next game', exact: true }).element() as HTMLAnchorElement).href).toBe('https://delos.tz.mt/quotes');
+		expect((page.getByRole('link', { name: 'Play the next game', exact: true }).element() as HTMLAnchorElement).href).toBe('https://delos.sloprefinery.ai/');
 	});
 	it('presentation evidence: physical rim overflow never gets an overfill-spoil glyph', async () => {
 		fillFixture = true;

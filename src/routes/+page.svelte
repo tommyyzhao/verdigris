@@ -4,7 +4,7 @@
 	import Map from './game/Map.svelte';
 	import Board from './game/Board.svelte';
 	import Greenhouse from './game/Greenhouse.svelte';
-	const ENDING_URL = 'https://delos.tz.mt/quotes';
+	const ENDING_URL = 'https://delos.sloprefinery.ai/';
 	import { createAirLayer } from './game/air.js';
 	import { LEVELS, SANDBOX } from './game/levels.js';
 	import { createAudio } from './game/audio.js';
@@ -210,7 +210,7 @@
 	{:else if screen === 'map'}
 		<Map {levels} {progress} available={unlocked(progress) + 1} onselect={select} onback={() => screen = 'title'} {revived}/>
 	{:else if screen === 'interlude'}
-		<section class="interlude" aria-label="The first wing wakes"><Greenhouse alive={3} settled/><div class="interlude-words"><span>{levels.length} rooms revived · {totalDrops} dewdrops</span><h1>The first wing remembers.</h1><p>You’ve awakened this garden. Your next game awaits.</p><a class="primary next-game" bind:this={nextGameLink} href={ENDING_URL} aria-describedby="next-game-destination">Play the next game <span aria-hidden="true">→</span></a><p id="next-game-destination" class="next-game-destination">delos.tz.mt/quotes</p><button class="text-button" onclick={map}>Stay and explore the greenhouse</button></div></section>
+		<section class="interlude" aria-label="The first wing wakes"><Greenhouse alive={3} settled/><div class="interlude-words"><span>{levels.length} rooms revived · {totalDrops} dewdrops</span><h1>The first wing remembers.</h1><p>You’ve awakened this garden. Your next game awaits.</p><a class="primary next-game" bind:this={nextGameLink} href={ENDING_URL} aria-describedby="next-game-destination">Play the next game <span aria-hidden="true">→</span></a><p id="next-game-destination" class="next-game-destination">delos.sloprefinery.ai</p><button class="text-button" onclick={map}>Stay and explore the greenhouse</button></div></section>
 	{:else if activeLevel}
 		<div class="room-screen" class:celebrating={screen === 'payoff'} inert={blocked}>
 			<header class="room-header" class:cleared={screen === 'payoff'}>
