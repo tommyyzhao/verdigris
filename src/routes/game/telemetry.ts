@@ -1446,7 +1446,7 @@ export class Telemetry {
 		this.unsaved = false;
 	}
 	filename() {
-		return `verdigris-${this.header.round_id ?? 'R00'}-${
+		return `fluider-${this.header.round_id ?? 'R00'}-${
 			this.header.participant_id ?? 'P00'
 		}-${String(this.header.session_id).slice(0, 8)}.json`;
 	}

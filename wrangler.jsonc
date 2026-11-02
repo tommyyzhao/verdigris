@@ -1,7 +1,7 @@
-// Cloudflare Workers static assets for the prerendered SvelteKit build (bun run build).
-// DNS for tz.mt is owned by the tz.mt deploy lead; add a custom-domain route only once the zone is active.
+// Cloudflare Pages: fluider.sloprefinery.ai uses a Namecheap CNAME to fluider.pages.dev.
+// The legacy verdigris Worker remains untouched; deploy with `wrangler pages deploy build`.
 {
-	"name": "verdigris",
+	"name": "fluider",
 	"compatibility_date": "2026-10-01",
-	"assets": { "directory": "./build" }
+	"pages_build_output_dir": "./build"
 }

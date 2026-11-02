@@ -3,7 +3,7 @@
 	"private": true,
 	"version": "0.1.0",
 	"type": "module",
-	"description": "Verdigris: an intimate liquid puzzle game on svelte-fluid's air and liquid engines.",
+	"description": "Fluider: an intimate liquid puzzle game on svelte-fluid's air and liquid engines.",
 	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",

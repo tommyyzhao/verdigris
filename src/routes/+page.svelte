@@ -199,7 +199,7 @@
 	function soundSettings() { audio?.setMuted(muted); audio?.setVolume(volume); saveSound(muted, volume); }
 </script>
 
-<svelte:head><title>Verdigris</title><meta name="description" content="A sleeping machine-garden. A little water, a little patience. An intimate liquid puzzle game."/><meta name="theme-color" content="#0c2932"/></svelte:head>
+<svelte:head><title>Fluider</title><meta name="description" content="A sleeping machine-garden. A little water, a little patience. An intimate liquid puzzle game."/><meta name="theme-color" content="#0c2932"/></svelte:head>
 <svelte:window onkeydown={keyboard} onpopstate={() => { if (roomHistory) { roomHistory = false; map(); } }}/>
 <div class="verdigris" data-screen={screen}>
 	<StudyPanel {levels} onrecorder={value => { telemetry = value; progress = { version: 2, cleared: {}, finale: false }; seen = {}; roomHints.clear(); }} onchoice={studyChoice} onpause={value => { studyPaused = value; if (value) runtime?.pause(); else { runtime?.resume(); paused = false; } }}/>

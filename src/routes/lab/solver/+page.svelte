@@ -46,7 +46,7 @@
 	});
 </script>
 
-<svelte:head><title>Verdigris solver lab</title><meta name="robots" content="noindex" /></svelte:head>
+<svelte:head><title>Fluider solver lab</title><meta name="robots" content="noindex" /></svelte:head>
 <main>
 	<h1>Real-engine solver</h1>
 	<p role="status">{status}</p>

@@ -66,6 +66,10 @@ describe('progress storage', () => {
 		};
 		expect(() => rememberOnboarding('pour', storage)).not.toThrow();
 	});
+	it('retains saved Verdigris progression after branding changes', () => {
+		const progress = { version: 2, cleared: { [LEVELS[0].id]: 2 }, finale: false };
+		expect(loadProgress(memory(JSON.stringify(progress)))).toEqual(progress);
+	});
 	it('round trips under the versioned key', () => {
 		const storage = memory();
 		const p = recordClear(empty(), LEVELS[0].id, 2);

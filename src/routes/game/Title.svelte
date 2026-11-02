@@ -7,7 +7,7 @@
 	<div class="shade"></div>
 	<div class="title-copy">
 		<div class="eyebrow"><span></span> a sleeping machine-garden <span></span></div>
-		<h1 id="verdigris-title">Verdigris<span class="title-dot">.</span></h1>
+		<h1 id="verdigris-title">Fluider<span class="title-dot">.</span></h1>
 		<p>Some things only need<br/>a little water to remember.</p>
 		<button class="enter" onclick={onenter}>{cleared ? 'Continue the garden' : 'Enter the greenhouse'}<span aria-hidden="true">↗</span></button>
 		{#if cleared}<button class="new" onclick={onnew}>Begin a new garden</button>{/if}

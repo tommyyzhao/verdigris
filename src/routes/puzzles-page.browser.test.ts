@@ -312,6 +312,8 @@ async function setup(
 		},
 	});
 	await tick();
+	expect(document.title).toBe('Fluider');
+	await expect.element(page.getByRole('heading', { name: 'Fluider.' })).toBeVisible();
 	if (options.consent) {
 		expect(localStorage.getItem(STORAGE_KEY)).toBeNull();
 		expect(document.querySelector('[aria-label="Study recording"]')).toBeNull();

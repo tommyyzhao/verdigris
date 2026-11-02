@@ -1,8 +1,8 @@
-# Verdigris
+# Fluider
 
 A sleeping machine-garden. A little water, a little patience.
 
-**[Play Verdigris](https://verdigris.tzpersonal.workers.dev)** (fluid.tz.mt once the tz.mt zone is active).
+**[Play Fluider](https://fluider.sloprefinery.ai)** (domain pending verification). Fallback: [workers.dev](https://verdigris.tzpersonal.workers.dev).
 
 An intimate liquid puzzle game in six rooms. Desktop or laptop, WebGL2 with hardware acceleration.
 
@@ -20,6 +20,8 @@ bun run dev        # http://localhost:5173
 - `/` — the game. `?study=1` opens the consent-gated playtest panel (local JSON export only).
 - `/check` — compatibility preflight for remote testers.
 - `/lab/solver` — solver lab.
+
+Saved progress stays in your browser, per hostname. Existing save keys are unchanged, but progress on the old workers.dev address does not automatically transfer to the new domain.
 
 ## Develop
 
@@ -45,14 +47,14 @@ History before 2026-11-01 lives in svelte-fluid's `feat/verdigris-v3` branch.
 
 ## Deploy
 
-Cloudflare Workers static assets (`wrangler.jsonc`, assets from `./build` only):
+Cloudflare Pages project `fluider` (`wrangler.jsonc`, static assets from `./build` only):
 
 ```sh
 VITE_STUDY_BUILD_HASH=$(git rev-parse HEAD) bun run build
-CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=… npx wrangler@4 deploy
+bunx wrangler pages deploy build --project-name fluider --branch main
 ```
 
-Once the tz.mt zone is active, add `"routes": [{ "pattern": "fluid.tz.mt", "custom_domain": true }]` to `wrangler.jsonc` and redeploy.
+The custom hostname `fluider.sloprefinery.ai` and its Namecheap CNAME are pending verification. The existing Worker remains a fallback.
 
 ## License
 
