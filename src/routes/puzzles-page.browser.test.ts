@@ -983,6 +983,7 @@ describe('Verdigris contextual gestures', () => {
 				finale: false,
 			},
 		});
+		expect(document.querySelector('a[href="https://delos.tz.mt/quotes"]')).toBeNull();
 		fixtureStatus = 'ready';
 		await wait(120);
 		await shot('ready');
@@ -995,15 +996,34 @@ describe('Verdigris contextual gestures', () => {
 		await page.getByRole('button', { name: 'Wake the first wing →' }).click();
 		expect(document.querySelector('[data-screen="interlude"]')).not.toBeNull();
 		expect(document.body.textContent).toContain('The first wing remembers.');
-		expect(document.querySelector('[data-screen="interlude"] a.ending-link')?.getAttribute('href')).toBe('https://delos.tz.mt/quotes');
+		const nextGame = page.getByRole('link', { name: 'Play the next game', exact: true });
+		const link = nextGame.element() as HTMLAnchorElement;
+		expect(link.href).toBe('https://delos.tz.mt/quotes');
+		expect(link.classList.contains('primary')).toBe(true);
+		await vi.waitFor(() => expect(document.activeElement).toBe(link));
+		const explore = page.getByRole('button', { name: 'Stay and explore the greenhouse', exact: true });
+		expect(explore.element().classList.contains('primary')).toBe(false);
 		await wait(7000);
 		expect(document.querySelector('[data-screen="interlude"]')).not.toBeNull();
-		await shot('interlude');
-		await page
-			.getByRole('button', { name: 'Explore the greenhouse →', exact: true })
-			.click();
+		for (const [width, height] of [[1280, 900], [1280, 720], [375, 667]]) {
+			await page.viewport(width, height);
+			const rect = link.getBoundingClientRect();
+			expect(rect.top).toBeGreaterThanOrEqual(0);
+			expect(rect.bottom).toBeLessThanOrEqual(innerHeight);
+			expect(rect.left).toBeGreaterThanOrEqual(0);
+			expect(rect.right).toBeLessThanOrEqual(innerWidth);
+			expect(rect.height).toBeGreaterThanOrEqual(80);
+			expect(rect.height).toBeGreaterThan(explore.element().getBoundingClientRect().height);
+			expect(Number.parseFloat(getComputedStyle(link).fontSize)).toBeGreaterThan(Number.parseFloat(getComputedStyle(explore.element()).fontSize));
+			await shot(`next-game-${width}x${height}`);
+		}
+		await page.viewport(1280, 900);
+		await userEvent.keyboard('{Tab}');
+		expect(document.activeElement).toBe(explore.element());
+		await explore.click();
 		expect(document.querySelector('[data-screen="map"]')).not.toBeNull();
 		expect(document.body.textContent).toContain('Wander the garden');
+		expect((page.getByRole('link', { name: 'Play the next game', exact: true }).element() as HTMLAnchorElement).href).toBe('https://delos.tz.mt/quotes');
 	});
 	it('presentation evidence: physical rim overflow never gets an overfill-spoil glyph', async () => {
 		fillFixture = true;
