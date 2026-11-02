@@ -2,6 +2,8 @@
 
 A sleeping machine-garden. A little water, a little patience.
 
+**[Play Verdigris](https://verdigris.tzpersonal.workers.dev)** (fluid.tz.mt once the tz.mt zone is active).
+
 An intimate liquid puzzle game in six rooms. Desktop or laptop, WebGL2 with hardware acceleration.
 
 Playtesting: stop reading here and open the game. The files below contain mechanisms and solutions.
@@ -40,6 +42,17 @@ VITEST_BROWSER=1 VITEST_CHROME_PATH="/path/to/Chrome" bunx vitest run --project 
 - `docs/learnings/` — solver and toy-horizon gotchas.
 
 History before 2026-11-01 lives in svelte-fluid's `feat/verdigris-v3` branch.
+
+## Deploy
+
+Cloudflare Workers static assets (`wrangler.jsonc`, assets from `./build` only):
+
+```sh
+VITE_STUDY_BUILD_HASH=$(git rev-parse HEAD) bun run build
+CLOUDFLARE_API_TOKEN=… CLOUDFLARE_ACCOUNT_ID=… npx wrangler@4 deploy
+```
+
+Once the tz.mt zone is active, add `"routes": [{ "pattern": "fluid.tz.mt", "custom_domain": true }]` to `wrangler.jsonc` and redeploy.
 
 ## License
 
