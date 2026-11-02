@@ -1,4 +1,4 @@
-# Verdigris v3 — owner playtest packet (lean round R01)
+# Fluider (Verdigris v3) — owner playtest packet (lean round R01)
 
 Method: `docs/playtest/` contains `protocol.md` (§2a lean format, §2b remote setup, §6 pass gates, §7 kill table), `checklist.md` (the run card) and `instrumentation.md`. This packet fills in the **freeze sheet**: everything that must be fixed before tester 1. Sign and date it, then hash it (`shasum -a 256`) and keep a read-only copy.
 
@@ -14,7 +14,7 @@ room_order (scored): still-pond, bring-it-back
 device: laptop/desktop (owner decision: no phones), current Chrome/Edge/Safari 26/Firefox
   - hardware acceleration on; /check = PASS before scored play
 audio: on by default, tester may mute   progress: fresh (the study mode resets it on consent)
-audience: puzzle-curious adults, never played Verdigris; quota 2 low / 1 medium / 2 high puzzle experience
+audience: puzzle-curious adults, never played Fluider (or Verdigris); quota 2 low / 1 medium / 2 high puzzle experience
 known bugs: none open at freeze (review: 11/11 fixed; see the fixes merge)
 prohibited help: no hints beyond the in-game tiers; no explaining controls beyond the neutral controls check
 stop conditions: distress, technical failure (log as technical, not a quit), withdrawal
@@ -90,6 +90,7 @@ Every clear used the intended mechanism, so these are not shortcuts. But the kil
 1. **Build.**
    - Run `VITE_STUDY_BUILD_HASH=$(git rev-parse HEAD) bun run build`.
    - Serve `build/` over **HTTPS or localhost**. A static host is fine; nothing uploads.
+   - Or use the live site, https://fluider.sloprefinery.ai, if `bunx wrangler pages deployment list --project-name fluider` shows the frozen commit in production.
 2. **Pre-flight.** The tester opens `/check`, presses Run compatibility check, and reads the code aloud. The facilitator sets "Prior capability check = PASS" in the panel.
 3. **Start.** The tester opens `/?study=1`.
    - Consent dialog: accept or decline.

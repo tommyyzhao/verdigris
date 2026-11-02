@@ -41,7 +41,7 @@ VITEST_BROWSER=1 VITEST_CHROME_PATH="/path/to/Chrome" bunx vitest run --project 
 
 - `docs/plans/` — design plan and playtest packet; `docs/playtest/` — protocol, run card, instrumentation spec.
 - `docs/benchmarks/` — v3 research synthesis, plus earlier prototype records (their paths refer to the old `svelte-fluid` `/puzzles` route).
-- `docs/learnings/` — solver and toy-horizon gotchas.
+- `docs/learnings/` — solver, toy-horizon and deploy gotchas.
 
 History before 2026-11-01 lives in svelte-fluid's `feat/verdigris-v3` branch.
 

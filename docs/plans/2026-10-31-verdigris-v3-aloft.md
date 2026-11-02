@@ -25,9 +25,9 @@ Pre-registered trigger: if any v3 room drops >1% vsync on the M2, switch the liq
 
 No WebGPU work, no two-way coupling, no siphon (G1 unfixed).
 
-## Status (2026-11-01)
+## Status (2026-11-02)
 
-Complete on `feat/verdigris-v3` (local, not pushed). Six rooms, wings 1/1/2/2/2/3. Every room passes acceptance 1–7. Air-off fails in every room except First Rain. Next: the owner runs the lean playtest (`2026-10-31-verdigris-v3-playtest-packet.md`).
+Renamed **Fluider** and live at https://fluider.sloprefinery.ai (Cloudflare Pages project `fluider`, Namecheap CNAME). The ending's primary action, “Play the next game”, links to https://delos.sloprefinery.ai/. Six rooms, wings 1/1/2/2/2/3. Every room passes acceptance 1–7. Air-off fails in every room except First Rain. Next: the owner runs the lean playtest (`2026-10-31-verdigris-v3-playtest-packet.md`).
 
 ## Rooms (insight graph order)
 

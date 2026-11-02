@@ -1,6 +1,6 @@
-# Verdigris — solo REMOTE / LEAN run card
+# Fluider — solo REMOTE / LEAN run card
 
-**≤40 min · five fresh testers · two frozen rooms.** Full scripts/gates: `protocol.md`; fields: `instrumentation.md`; citations: `sources.md`. Recorder/export/compatibility page **not yet implemented**; without them label video/notes-only, unavailable metrics not assessed.
+**≤40 min · five fresh testers · two frozen rooms.** Full scripts/gates: `protocol.md`; fields: `instrumentation.md`; citations: `sources.md`. The recorder (`?study=1`), JSON export and `/check` page are implemented; see the packet's Build / run steps.
 
 ## Before measured block — async pre-flight, consent confirmed live
 
