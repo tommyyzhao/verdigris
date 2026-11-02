@@ -2,7 +2,7 @@
 
 A sleeping machine-garden. A little water, a little patience.
 
-**[Play Fluider](https://fluider.sloprefinery.ai)** (domain pending verification). Fallback: [workers.dev](https://verdigris.tzpersonal.workers.dev).
+**[Play Fluider](https://fluider.sloprefinery.ai)** · Alternate address: [fluider.pages.dev](https://fluider.pages.dev).
 
 An intimate liquid puzzle game in six rooms. Desktop or laptop, WebGL2 with hardware acceleration.
 
@@ -54,7 +54,7 @@ VITE_STUDY_BUILD_HASH=$(git rev-parse HEAD) bun run build
 bunx wrangler pages deploy build --project-name fluider --branch main
 ```
 
-The custom hostname `fluider.sloprefinery.ai` and its Namecheap CNAME are pending verification. The existing Worker remains a fallback.
+`fluider.sloprefinery.ai` is registered as a Pages custom domain, with a Namecheap CNAME pointing to `fluider.pages.dev`; HTTPS is active. The DNS zone remains at Namecheap. The legacy `verdigris.tzpersonal.workers.dev` Worker is unchanged, not the current deployment target.
 
 ## License
 
